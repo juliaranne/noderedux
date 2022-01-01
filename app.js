@@ -3,7 +3,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => res.send("Hello World!"));
-app.listen(port, () =>
-  console.log(`Example app listening on port ${process.env.MAPS_API_KEY}!`)
-);
+app.use(express.static(__dirname));
+app.listen(port, () => console.log(`Listening`));
+
+app.post("/api/map", function (req, res) {
+  res.send({
+    key: "secret key",
+  });
+});
